@@ -44,8 +44,8 @@ public class ConsumerPerPartitionAsyncCommit {
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        props.put("enable.auto.commit", false);
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, GROUP_ID);
+        props.put("enable.auto.commit", false); // si no el commit es automatico sin control
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, GROUP_ID); 
 
         return new KafkaConsumer<>(props);
     }

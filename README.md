@@ -1,3 +1,7 @@
+# Producer - Consumer en Kafka
+
+Este repositorio incluye código proporcionado para aprender Kafka y propio mío en la carpeta "Pruebasmiguel".
+
 # Guía Rápida de Kafka
 
 A continuación, se describe una guía rápida de cómo trabajar con Kafka para definir un topic, lanzar un consumer y un producer.
@@ -106,4 +110,12 @@ Nuevos Objetivos:
   - matricula: string
   - velocidad: integer
   - timestamp_medicion: float
+
+Últimos objetivos:
+- Conseguir que un productor genere mensajes:
+  - key de tipo string con id del camion
+  - value de tipo avro con el mensaje definido en "nuevos objetivos"
+  - podemos meter commit asincrono
+- Un consumidor que lea estos mensajes y presente para cada vehículo su posición actual (km) y la cantidad de km recorridos.
+
   
