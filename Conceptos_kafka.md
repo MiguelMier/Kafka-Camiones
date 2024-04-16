@@ -3,9 +3,12 @@
 A continuación, se describe una guía rápida de cómo trabajar con Kafka para definir un topic, lanzar un consumer y un producer.
 
 Para poder incluir los comandos debemos abrir un terminal sobre el docker 
+* Paso previo: lanzar el docker compose:
+  ```bash
+   docker compose -f .\docker\docker-compose.yml up -d
+   ```
+
 * Para abrir un terminal en el contenedor:
-
-
    
    ```bash
    docker exec -it docker-kafka1-1 bash
@@ -43,30 +46,27 @@ Podemos abrir dos terminales para sobre contenedor docker-kafka-1. En uno de ell
   kafka-console-consumer --bootstrap-server localhost:9092 --topic topic-test --from-beginning
   ```
 
-* Borrado de topics
+* Borrado de topics: en este ejemplo se crea un topic con 3 particiones para luego borrarlo
 
-```bash
-kafka-topics --bootstrap-server localhost:9092 --topic topic-test2 --create --partitions 3 --replication-factor 1
-kafka-topics --bootstrap-server localhost:9092 --list
-kafka-topics --bootstrap-server localhost:9092 --topic topic-test2 --delete
-kafka-topics --bootstrap-server localhost:9092 --list
-```
-
-
-
+  ```bash
+  kafka-topics --bootstrap-server localhost:9092 --topic topic-test2 --create --partitions 3 --replication-factor 1
+  kafka-topics --bootstrap-server localhost:9092 --list
+  kafka-topics --bootstrap-server localhost:9092 --topic topic-test2 --delete
+  kafka-topics --bootstrap-server localhost:9092 --list
+  ```
 
 
 * Enviando mensajes con clave
-```bash
-kafka-topics --bootstrap-server localhost:9092 --topic topic-key --create --partitions 3 --replication-factor 1
+  ```bash
+  kafka-topics --bootstrap-server localhost:9092 --topic topic-key --create --partitions 3 --replication-factor 1
 
-kafka-console-producer --broker-list localhost:9092 --topic topic-key --property "parse.key= true" --property "key.separator=:"
-```
+  kafka-console-producer --broker-list localhost:9092 --topic topic-key --property "parse.key= true" --property "key.separator=:"
+  ```
 
 * verificar que los mensajes se enrutan a las particiones en función de la clave. Abrir cada consumer en un terminal de docker-kafka1 distinto.
 
-```bash
-kafka-console-consumer --bootstrap-server localhost:9092 --topic topic-key --from-beginning --partition 0 --property "print.key=true"
-kafka-console-consumer --bootstrap-server localhost:9092 --topic topic-key --from-beginning --partition 1 --property "print.key=true"
-kafka-console-consumer --bootstrap-server localhost:9092 --topic topic-key --from-beginning --partition 2 --property "print.key=true"
-```
+  ```bash
+  kafka-console-consumer --bootstrap-server localhost:9092 --topic topic-key --from-beginning --partition 0 --property "print.key=true"
+  kafka-console-consumer --bootstrap-server localhost:9092 --topic topic-key --from-beginning --partition 1 --property "print.key=true"
+  kafka-console-consumer --bootstrap-server localhost:9092 --topic topic-key --from-beginning --partition 2 --property "print.key=true"
+  ```
