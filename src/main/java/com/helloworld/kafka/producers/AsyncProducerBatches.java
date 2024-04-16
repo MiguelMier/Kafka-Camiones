@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.util.Properties;
 import java.util.Random;
-import java.util.concurrent.Future;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
@@ -15,6 +14,7 @@ import org.slf4j.LoggerFactory;
 public class AsyncProducerBatches {
 
 	private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+
 	
     public static void main(final String[] args) throws IOException {
         

@@ -99,3 +99,11 @@ Objetivos:
 - Utilizar un consumidor kafka-console-consumer 
 - Objetivo parcial: 
     En el consumidor debe aparecer todos los datos de todos los camiones.
+
+Nuevos Objetivos:
+- Datos a enviar en tipo AVRO:
+  - km: float
+  - matricula: string
+  - velocidad: integer
+  - timestamp_medicion: float
+  

@@ -65,7 +65,7 @@ public class AsyncProducerAvro {
 
             producer.send(
             		new ProducerRecord<GenericRecord, GenericRecord>(topic, keyRecord, valueRecord),
-                    (metadata, exception) -> {
+                    (metadata, exception) -> { // tratamiento en asincrono
                         if (exception != null) {
                             exception.printStackTrace();
                         } else {
