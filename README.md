@@ -65,8 +65,35 @@ Podemos abrir dos terminales para sobre contenedor docker-kafka-1. En uno de ell
 
 * verificar que los mensajes se enrutan a las particiones en función de la clave. Abrir cada consumer en un terminal de docker-kafka1 distinto.
 
-  ```bash
-  kafka-console-consumer --bootstrap-server localhost:9092 --topic topic-key --from-beginning --partition 0 --property "print.key=true"
-  kafka-console-consumer --bootstrap-server localhost:9092 --topic topic-key --from-beginning --partition 1 --property "print.key=true"
-  kafka-console-consumer --bootstrap-server localhost:9092 --topic topic-key --from-beginning --partition 2 --property "print.key=true"
-  ```
+```bash
+kafka-console-consumer --bootstrap-server localhost:9092 --topic topic-key --from-beginning --partition 0 --property "print.key=true"
+kafka-console-consumer --bootstrap-server localhost:9092 --topic topic-key --from-beginning --partition 1 --property "print.key=true"
+kafka-console-consumer --bootstrap-server localhost:9092 --topic topic-key --from-beginning --partition 2 --property "print.key=true"
+```
+
+
+# EJERCICIO
+Camiones
+ 
+5 camiones
+ 
+Cantidad de kilómetros que ha realizado cada camión.
+ 
+Simular los camiones en un único productor.
+ 
+Los camiones van a mandar como mensaje el kilométro de la carretera por la que van
+ 
+Los camiones van a mandar 10 mediciones.
+ 
+Siempre van por la misma carretera
+ 
+Pero no sabemos en qué kilómetro de la carreta empiezan
+ 
+En la simulación cada camión debe empezar en un kilómetro aleatorio entre 10 y 20.
+ 
+Objetivos:
+- Plantear la estructura de topics
+- Implementar el productor
+- Utilizar un consumidor kafka-console-consumer
+- Objetivo parcial: 
+    En el consumidor debe aparecer todos los datos de todos los camiones.
