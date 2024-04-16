@@ -83,17 +83,19 @@ Simular los camiones en un único productor.
  
 Los camiones van a mandar como mensaje el kilométro de la carretera por la que van
  
-Los camiones van a mandar 10 mediciones.
+Los camiones van a mandar 10 mediciones. En cada medicion avanzan 1,3 km 
  
 Siempre van por la misma carretera
  
 Pero no sabemos en qué kilómetro de la carreta empiezan
  
 En la simulación cada camión debe empezar en un kilómetro aleatorio entre 10 y 20.
+
+Implementar estructura en memoria que tenga los camiones. Debe simular que el camión va avanzando y cada x tiempo mandar la posicion del camion 
  
 Objetivos:
-- Plantear la estructura de topics
-- Implementar el productor
-- Utilizar un consumidor kafka-console-consumer
+- Plantear la estructura de topics --> un topic. km_posicion (gps), en la clave el id del camion
+- Implementar el productor --> productor asíncrono, opcionalmente tratar errores con callback
+- Utilizar un consumidor kafka-console-consumer 
 - Objetivo parcial: 
     En el consumidor debe aparecer todos los datos de todos los camiones.
